@@ -908,7 +908,7 @@ function renderSecret() {
 
     lock.textContent = "🔓";
 
-    document.getElementById("secretIcon").textContent = "📂";
+    document.getElementById("secretIcon").src = "images/icon-secret.png";
     document.getElementById("secretWindowTitle").textContent =
       "📂 My Secret ♡";
 
