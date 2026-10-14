@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Childhood Computer</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="computer" aria-label="My Childhood Computer">
+    <div class="screen">
+      <div class="desktop">
+
+        <button class="desktop-icon pictures-icon" id="openAlbum">
+          <span class="folder-emoji">📁</span>
+          <span>My Pictures</span>
+        </button>
+
+        <button class="desktop-icon mail-icon" id="openMail">
+          <span class="folder-emoji">✉️</span>
+          <span>My Mail</span>
+        </button>
+
+        <button class="desktop-icon music-icon" id="openMusic">
+          <span class="folder-emoji">🎵</span>
+          <span>My Music</span>
+        </button>
+
+        <button class="desktop-icon calendar-icon" id="openCalendar">
+          <span class="folder-emoji">📅</span>
+          <span>My Calendar</span>
+        </button>
+
+        <button class="desktop-icon diary-icon" id="openDiary">
+          <span class="folder-emoji">📖</span>
+          <span>My Diary</span>
+        </button>
+
+        <button class="desktop-icon secret-icon" id="openSecret">
+          <span class="folder-emoji" id="secretIcon">🔒</span>
+          <span>My Secret ♡</span>
+        </button>
+
+      </div>
+
+      <section class="window hidden" id="albumWindow">
+        <header class="titlebar">
+          <span class="titlebar-title">📁 My Pictures</span>
+          <button class="window-close" id="closeAlbum">×</button>
+        </header>
+
+        <div class="toolbar">
+          <span>File</span><span>Edit</span><span>View</span>
+          <span>Favorites</span><span>Help</span>
+        </div>
+
+        <div class="addressbar">
+          <span>Address</span>
+          <div>📁 My Computer / My Pictures</div>
+        </div>
+
+        <div class="album-content">
+          <div class="album-heading">
+            <h1>My Pictures</h1>
+            <p>My favorite photos!</p>
+          </div>
+          <div class="photo-grid" id="photoGrid"></div>
+        </div>
+
+        <footer class="statusbar">
+          <span id="albumStatus">7 objects</span>
+          <span>My Pictures</span>
+        </footer>
+      </section>
+
+      <section class="window viewer hidden" id="photoWindow">
+        <header class="titlebar">
+          <span class="titlebar-title" id="viewerTitle">Picture Viewer</span>
+          <button class="window-close" id="closePhoto">×</button>
+        </header>
+
+        <div class="viewer-content">
+          <div class="photo-stage">
+            <img id="largePhoto" src="images/photo1.jpg" alt="Childhood photo">
+          </div>
+
+          <div class="viewer-bottom">
+            <div class="viewer-actions">
+              <button id="previousPhoto">◀</button>
+              <span id="photoCount">1 / 7</span>
+              <button id="nextPhoto">▶</button>
+              <button id="toggleCaption">✎ Show note</button>
+            </div>
+
+            <div class="caption hidden" id="captionPanel">
+              <h2 id="captionTitle">Photo</h2>
+              <p id="captionText"></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="window mail-window hidden" id="mailWindow">
+        <header class="titlebar">
+          <span class="titlebar-title">✉ My Mail - Outlook Express</span>
+          <button class="window-close" id="closeMail">×</button>
+        </header>
+
+        <div class="toolbar">
+          <span>File</span><span>Edit</span><span>View</span>
+          <span>Tools</span><span>Message</span><span>Help</span>
+        </div>
+
+        <div class="mail-toolbar">
+          <span>✉ Mail</span>
+          <button id="showInbox">📥 Inbox</button>
+          <button id="showSent">📤 Sent Items</button>
+        </div>
+
+        <div class="mail-layout">
+          <aside class="mail-sidebar">
+            <div class="mail-sidebar-heading">Local Folders</div>
+
+            <button class="mail-folder selected" id="inboxFolder">
+              📥 Inbox
+            </button>
+
+            <div class="mail-folder-label">📨 Outbox</div>
+            <div class="mail-folder-label">📝 Drafts</div>
+
+            <button class="mail-folder" id="sentFolder">
+              📤 Sent Items
+            </button>
+          </aside>
+
+          <div class="mail-main">
+            <div class="mail-list-header">
+              <span id="mailColumnLabel">From</span>
+              <span>Subject</span>
+              <span>Date</span>
+            </div>
+
+            <div class="mail-list" id="mailList"></div>
+
+            <div class="mail-preview" id="mailPreview">
+              <div class="mail-placeholder">
+                <span>✉</span>
+                <p>Select a message to read it.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <footer class="statusbar">
+          <span id="mailStatus">6 messages</span>
+          <span>Outlook Express</span>
+        </footer>
+      </div>
+
+      <section class="window music-window hidden" id="musicWindow">
+        <header class="titlebar">
+          <span class="titlebar-title">♫ Windows Media Player</span>
+          <button class="window-close" id="closeMusic">×</button>
+        </header>
+
+        <div class="music-player">
+          <div class="music-display">
+            <div class="music-visual">
+              <div class="visual-bars" id="visualBars">
+                <span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span>
+              </div>
+            </div>
+
+            <div class="music-info">
+              <div class="music-now-label">NOW PLAYING</div>
+              <h2 id="songTitle">Baby</h2>
+              <p id="songArtist">Reggae Cover</p>
+              <div class="music-playing-status" id="musicStatus">
+                Ready to play
+              </div>
+            </div>
+          </div>
+
+          <div class="music-controls">
+            <div class="music-progress">
+              <span id="currentTime">0:00</span>
+              <input type="range" id="musicSeek" min="0" max="100" value="0">
+              <span id="totalTime">0:00</span>
+            </div>
+
+            <div class="music-buttons">
+              <button id="previousSong">⏮</button>
+              <button class="music-play-button" id="playPause">▶</button>
+              <button id="nextSong">⏭</button>
+
+              <div class="music-volume">
+                <span>🔊</span>
+                <input type="range" id="musicVolume" min="0" max="100" value="70">
+              </div>
+            </div>
+          </div>
+
+          <div class="playlist-heading">Playlist</div>
+          <div class="music-playlist" id="musicPlaylist"></div>
+        </div>
+
+        <div class="music-note hidden" id="musicNote" role="status">
+          <div class="music-note-top">
+            <span>♪ My Favorite Song ♡</span>
+            <button id="closeMusicNote">×</button>
+          </div>
+          <p id="musicNoteText"></p>
+        </div>
+
+        <footer class="statusbar">
+          <span id="musicTrackStatus">Track 1 of 3</span>
+          <span>Windows Media Player</span>
+        </footer>
+      </section>
+
+      <section class="window calendar-window hidden" id="calendarWindow">
+        <header class="titlebar">
+          <span class="titlebar-title">📅 My Calendar</span>
+          <button class="window-close" id="closeCalendar">×</button>
+        </header>
+
+        <div class="calendar-app">
+          <div class="calendar-top">
+            <button id="previousMonth">◀</button>
+            <h2 id="calendarMonth">September 2012</h2>
+            <button id="nextMonth">▶</button>
+          </div>
+
+          <div class="calendar-weekdays">
+            <span>Sun</span><span>Mon</span><span>Tue</span>
+            <span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+          </div>
+
+          <div class="calendar-grid" id="calendarGrid"></div>
+
+          <div class="calendar-event" id="calendarEvent">
+            <div class="calendar-event-date" id="calendarEventDate">
+              September 4, 2012
+            </div>
+            <h3 id="calendarEventTitle">My first day of school!</h3>
+            <p id="calendarEventText"></p>
+          </div>
+        </div>
+
+        <footer class="statusbar">
+          <span>My Calendar</span>
+          <span>2012</span>
+        </footer>
+      </section>
+
+      <section class="window diary-window hidden" id="diaryWindow">
+        <header class="titlebar">
+          <span class="titlebar-title">📖 My Diary</span>
+          <button class="window-close" id="closeDiary">×</button>
+        </header>
+
+        <div class="diary-layout">
+          <aside class="diary-sidebar">
+            <div class="diary-sidebar-title">My Entries ♡</div>
+            <div id="diaryEntryList"></div>
+          </aside>
+
+          <div class="diary-paper">
+            <div class="diary-date" id="diaryDate"></div>
+            <h2 id="diaryTitle">My Diary</h2>
+            <div class="diary-text" id="diaryText"></div>
+            <div class="diary-signature">Love, Bella ♡</div>
+          </div>
+        </div>
+
+        <footer class="statusbar">
+          <span>My Diary</span>
+          <span>Private ♡</span>
+        </footer>
+      </section>
+
+      <section class="window secret-window hidden" id="secretWindow">
+        <header class="titlebar">
+          <span class="titlebar-title" id="secretWindowTitle">
+            🔒 My Secret ♡
+          </span>
+          <button class="window-close" id="closeSecret">×</button>
+        </header>
+
+        <div class="secret-content" id="secretContent">
+          <div class="secret-lock" id="secretLock">🔒</div>
+
+          <div id="secretQuestions">
+            <h2>My Secret Folder</h2>
+            <p class="secret-intro">
+              Only someone who remembers my childhood can open this folder.
+              Choose any question to answer!
+            </p>
+
+            <div class="secret-progress" id="secretProgress">
+              0 of 5 questions answered
+            </div>
+
+            <div class="secret-progress-bar">
+              <div id="secretProgressFill"></div>
+            </div>
+
+            <div class="secret-question-list" id="secretQuestionList">
+              <button type="button" class="secret-question-card" data-question="0">
+                <span class="secret-question-number">01</span>
+                <span class="secret-question-label">What is the name of my first puppy?</span>
+                <span class="secret-question-check">○</span>
+              </button>
+
+              <button type="button" class="secret-question-card" data-question="1">
+                <span class="secret-question-number">02</span>
+                <span class="secret-question-label">What do Mom and Dad call me?</span>
+                <span class="secret-question-check">○</span>
+              </button>
+
+              <button type="button" class="secret-question-card" data-question="2">
+                <span class="secret-question-number">03</span>
+                <span class="secret-question-label">What is my favorite song?</span>
+                <span class="secret-question-check">○</span>
+              </button>
+
+              <button type="button" class="secret-question-card" data-question="3">
+                <span class="secret-question-number">04</span>
+                <span class="secret-question-label">What is the name of my elementary school?</span>
+                <span class="secret-question-check">○</span>
+              </button>
+
+              <button type="button" class="secret-question-card" data-question="4">
+                <span class="secret-question-number">05</span>
+                <span class="secret-question-label">What is my favorite food?</span>
+                <span class="secret-question-check">○</span>
+              </button>
+            </div>
+
+            <form id="secretForm" class="hidden">
+              <label for="secretAnswer" id="secretQuestion"></label>
+
+              <input
+                type="text"
+                id="secretAnswer"
+                placeholder="Type your answer..."
+                autocomplete="off"
+                required
+              >
+
+              <p class="secret-feedback" id="secretFeedback" aria-live="polite"></p>
+
+              <button type="button" class="secret-back" id="secretBack">← All Questions</button>
+
+              <button type="submit" class="secret-submit">
+                Check Answer →
+              </button>
+            </form>
+          </div>
+
+          <div class="secret-unlocked hidden" id="secretUnlocked">
+            <h2>My Little Time Capsule ♡</h2>
+            <div class="secret-letter">
+              <p>Dear future me,</p>
+              <p>Hiiii!! It's me!! The little you! ♡</p>
+              <p>Are you all grown up now? Are you really tall? Do you still like pizza? Because I LOVE pizza!!!</p>
+              <p>Do you remember Milk? And all the pictures we took? I hope you didn't forget them!</p>
+              <p>I wonder if you still listen to Baby. It's my favorite song EVER!! I can listen to it a million times!</p>
+              <p>I have so many questions! Do you still talk to your old friends? Do you still play games? Do you still like stickers?</p>
+              <p>I don't know what being a grown-up is like. I hope it's fun! But I hope you still have time to play sometimes.</p>
+              <p>Oh!! And please don't throw away my pictures, okay? They're really important to me.</p>
+              <p>Okay bye bye!!</p>
+              <p>Love,<br>Little me ♡</p>
+              <p>P.S. If you found this letter, that means you remembered everything!! YAY!!!</p>
+            </div>
+          </div>
+        </div>
+
+        <footer class="statusbar">
+          <span id="secretStatus">Folder locked</span>
+          <span>My Secret ♡</span>
+        </footer>
+      </section>
+
+      <footer class="taskbar">
+        <button class="start-button" id="startButton">
+          <span>⊞</span> start
+        </button>
+
+        <button class="task-button" id="taskAlbum">📁 Pictures</button>
+        <button class="task-button" id="taskMail">✉ Mail</button>
+        <button class="task-button" id="taskMusic">♫ Music</button>
+
+        <span class="taskbar-clock" id="clock">12:00 PM</span>
+      </footer>
+
+      <div class="start-menu hidden" id="startMenu">
+        <strong>My Childhood Computer</strong>
+        <button id="menuPictures">📁 My Pictures</button>
+        <button id="menuMail">✉ My Mail</button>
+        <button id="menuMusic">♫ My Music</button>
+        <button id="menuCalendar">📅 My Calendar</button>
+        <button id="menuDiary">📖 My Diary</button>
+        <button id="menuSecret">🔒 My Secret ♡</button>
+      </div>
+
+      <audio id="audioPlayer" preload="metadata"></audio>
+    </div>
+
+    <img
+      class="computer-frame"
+      src="images/computer-frame.png"
+      alt=""
+      aria-hidden="true"
+    >
+  </main>
+</body>
+</html>
