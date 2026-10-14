@@ -5,22 +5,22 @@ const photos = [
     note: "This is me with Milk!! He's my first puppy and he's soooo cute! I wish he could stay this little forever."
   },
   {
-    src: "images/photo2.png",
+    src: "images/photo2.PNG",
     title: "My Favorite Place!",
     note: "Look at all the colorful balls!! I want to play here all day. Can we come back tomorrow?"
   },
   {
-    src: "images/photo3.png",
+    src: "images/photo3.PNG",
     title: "Such a Fun Day!",
     note: "We went to the fair today!! I saw a HUGE Ferris wheel and got cotton candy! I didn't want to go home."
   },
   {
-    src: "images/photo4.png",
+    src: "images/photo4.PNG",
     title: "My Stickers!!",
     note: "These are my stickers! I have so many now!! I love the sparkly ones the most. I can't wait to show Sophie!"
   },
   {
-    src: "images/photo5.jpg",
+    src: "images/photo5.JPG",
     title: "A Cute Little Puppy",
     note: "I saw this little white puppy today! He's so fluffy!! I really wanted to take him home with me."
   },
